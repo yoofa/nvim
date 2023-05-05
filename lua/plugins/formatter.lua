@@ -1,4 +1,5 @@
-if false then
+-- No need to use, null-ls is responsoble for format files
+if true then
   return {}
 end
 
@@ -10,5 +11,10 @@ end
 -- * override the configuration of LazyVim plugins
 return {
   -- add neoformat
-  { "sbdchd/neoformat" },
+  {
+    "sbdchd/neoformat",
+    --     opts = function(_, opts)
+    --       require("config.formatting").configure_format_on_save()
+    --     end,
+  },
 }

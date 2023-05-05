@@ -7,9 +7,11 @@ vim.g.username = "youfa"
 vim.g.email = "vsyfar@gmail.com"
 vim.g.license = "GPLv2"
 
+local opt = vim.opt
+
 -- personal options
-local opt = {}
+local custom_opt = {}
 
-opt["format_on_save"] = true
+custom_opt["format_on_save"] = false
 
-return opt
+return custom_opt
