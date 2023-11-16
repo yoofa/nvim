@@ -36,6 +36,7 @@ return {
     cmd = "SymbolsOutline",
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     config = true,
+    opts = { auto_close = true },
   },
 
   -- override nvim-cmp and add cmp-emoji
@@ -192,4 +193,7 @@ return {
       })
     end,
   },
+
+  -- add vim-wakatime
+  { "wakatime/vim-wakatime", event = "VeryLazy" },
 }

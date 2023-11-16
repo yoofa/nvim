@@ -149,7 +149,11 @@ return {
         vimls = {},
         -- tailwindcss = {},
       },
-      setup = {},
+      --      setup = {
+      --        clangd = function(_, opts)
+      --          opts.capabilities.offsetEncoding = { "utf-16" }
+      --        end,
+      --      },
     },
   },
 
@@ -169,13 +173,11 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
-
       vim.list_extend(opts.sources, {
-        nls.builtins.formatting.isort,
-        nls.builtins.formatting.black,
         nls.builtins.formatting.gn_format,
         nls.builtins.formatting.clang_format,
         nls.builtins.formatting.stylua,
+        -- nls.builtins.formatting.yamlfix,
 
         nls.builtins.diagnostics.markdownlint,
         nls.builtins.diagnostics.selene.with({
@@ -183,6 +185,8 @@ return {
             return utils.root_has_file({ "selene.toml" })
           end,
         }),
+        nls.builtins.formatting.isort,
+        nls.builtins.formatting.black,
         nls.builtins.diagnostics.flake8,
         nls.builtins.diagnostics.luacheck.with({
           condition = function(utils)
