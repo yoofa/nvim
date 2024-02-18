@@ -8,10 +8,3 @@ vim.g.email = "vsyfar@gmail.com"
 vim.g.license = "GPLv2"
 
 local opt = vim.opt
-
--- personal options
-local custom_opt = {}
-
-custom_opt["format_on_save"] = false
-
-return custom_opt

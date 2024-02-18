@@ -179,6 +179,8 @@ return {
   {
     "stevearc/conform.nvim",
     optional = true,
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
     opts = {
       formatters_by_ft = {
         ["markdown"] = { { "prettierd", "prettier" } },
@@ -187,6 +189,7 @@ return {
         ["javascriptreact"] = { "dprint" },
         ["typescript"] = { "dprint" },
         ["typescriptreact"] = { "dprint" },
+        ["cpp"] = { "clang_format" },
       },
       formatters = {
         shfmt = {
@@ -199,7 +202,12 @@ return {
         },
       },
     },
+    init = function()
+      -- If you want the formatexpr, here is the place to set it
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
   },
+
   {
     "mfussenegger/nvim-lint",
     opts = {
@@ -220,36 +228,6 @@ return {
         },
       },
     },
-  },
-
-  -- null-ls
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    enabled = false,
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      vim.list_extend(opts.sources, {
-        nls.builtins.formatting.gn_format,
-        nls.builtins.formatting.clang_format,
-        nls.builtins.formatting.stylua,
-        -- nls.builtins.formatting.yamlfix,
-
-        nls.builtins.diagnostics.markdownlint,
-        nls.builtins.diagnostics.selene.with({
-          condition = function(utils)
-            return utils.root_has_file({ "selene.toml" })
-          end,
-        }),
-        nls.builtins.formatting.isort,
-        nls.builtins.formatting.black,
-        nls.builtins.diagnostics.flake8,
-        nls.builtins.diagnostics.luacheck.with({
-          condition = function(utils)
-            return utils.root_has_file({ ".luacheckrc" })
-          end,
-        }),
-      })
-    end,
   },
 
   -- inlay hints
