@@ -3,15 +3,35 @@ if false then
 end
 
 return {
+  -- copilot
+  {
+    "zbirenbaum/copilot.lua",
+    opts = {
+      filetypes = { ["*"] = true },
+    },
+  },
+
+  {
+    "nvim-cmp",
+    dependencies = { "hrsh7th/cmp-emoji" },
+    opts = function(_, opts)
+      table.insert(opts.sources, { name = "emoji" })
+    end,
+  },
+
+  -- gn syntax
   { "kalcutter/vim-gn" },
+
+  -- LuaSnip
   {
     "L3MON4D3/LuaSnip",
-    -- follow latest release.
-    version = "<CurrentMajor>.*",
-    -- install jsregexp (optional!).
-    -- build = "make install_jsregexp",
+    keys = function()
+      return {}
+    end,
+    event = "VeryLazy",
   },
-  { "rafamadriz/friendly-snippets" },
+
+  { "rafamadriz/friendly-snippets", event = "VeryLazy" },
 
   { "aperezdc/vim-template" },
 }
