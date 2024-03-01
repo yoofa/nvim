@@ -191,6 +191,7 @@ return {
         ["typescript"] = { "dprint" },
         ["typescriptreact"] = { "dprint" },
         ["cpp"] = { "clang_format" },
+        ["gn"] = { "gn" },
       },
       formatters = {
         shfmt = {
