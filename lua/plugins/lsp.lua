@@ -192,6 +192,7 @@ return {
         ["typescriptreact"] = { "dprint" },
         ["cpp"] = { "clang_format" },
         ["gn"] = { "gn" },
+        ["blueprint"] = { "bpfmt" },
       },
       formatters = {
         shfmt = {
