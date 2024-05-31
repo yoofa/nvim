@@ -34,4 +34,18 @@ return {
   { "rafamadriz/friendly-snippets", event = "VeryLazy" },
 
   { "aperezdc/vim-template" },
+
+  {
+    "CRAG666/code_runner.nvim",
+    opts = {
+      filetype = {
+        cpp = {
+          "cd $dir &&",
+          "g++ $fileName",
+          "-o /tmp/$fileNameWithoutExt &&",
+          "/tmp/$fileNameWithoutExt",
+        },
+      },
+    },
+  },
 }
