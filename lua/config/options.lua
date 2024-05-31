@@ -7,4 +7,6 @@ vim.g.username = "youfa"
 vim.g.email = "vsyfar@gmail.com"
 vim.g.license = "GPLv2"
 
+vim.g.editorconfig = true
+
 local opt = vim.opt
