@@ -32,6 +32,17 @@ return {
     end,
   },
 
+  -- lspsaga
+  {
+    "nvimdev/lspsaga.nvim",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
+    },
+  },
   -- lsp servers
   {
     "neovim/nvim-lspconfig",
@@ -191,6 +202,8 @@ return {
         ["typescript"] = { "dprint" },
         ["typescriptreact"] = { "dprint" },
         ["cpp"] = { "clang_format" },
+        ["c"] = { "clang_format" },
+        ["java"] = { "google-java-format" },
         ["gn"] = { "gn" },
         ["blueprint"] = { "bpfmt" },
       },
