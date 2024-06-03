@@ -6,6 +6,8 @@
 -- Distributed under terms of the GPLv2 license.
 --
 
+local user_config = require("utils.dynamic_config")
+
 return {
   {
     "vhyrro/luarocks.nvim",
@@ -90,7 +92,7 @@ return {
         },
       },
       storage = {
-        --home = "/home/youfa/work/github.com/yoofa/leetcode",
+        home = user_config.leetcode_home,
         cache = vim.fn.stdpath("cache") .. "/leetcode",
       },
       image_support = true,

@@ -59,6 +59,9 @@ return {
         -- clangd
         clangd = {
           single_file_support = true,
+          capabilities = {
+            offsetEncoding = { "utf-16" },
+          },
         },
         --
       },
