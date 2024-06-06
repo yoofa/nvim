@@ -86,7 +86,7 @@ return {
 
   {
     "stevearc/conform.nvim",
-    enabled = false,
+    enabled = true,
     optional = true,
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
@@ -119,7 +119,7 @@ return {
 
   {
     "mfussenegger/nvim-lint",
-    enabled = false,
+    enabled = true,
     opts = {
       linters_by_ft = {
         lua = { "selene", "luacheck" },
@@ -143,7 +143,7 @@ return {
   -- inlay hints
   {
     "lvimuser/lsp-inlayhints.nvim",
-    enabled = false,
+    enabled = true,
     event = "LspAttach",
     opts = {},
     config = function(_, opts)
