@@ -1,2 +1,3 @@
-au BufRead,BufNewFile *.bp      setfiletype blueprint
+au BufRead,BufNewFile *.bp    set filetype=blueprint
+
 
