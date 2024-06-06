@@ -2,6 +2,7 @@ return {
   -- neodev
   {
     "folke/neodev.nvim",
+    enabled = true,
     opts = {
       debug = true,
       experimental = {
@@ -35,12 +36,16 @@ return {
   -- lspsaga
   {
     "nvimdev/lspsaga.nvim",
-    config = function()
-      require("lspsaga").setup({})
-    end,
+    enabled = true,
+    opts = {
+      ui = {
+        code_action = "󰌶",
+        diagnostic = "",
+      },
+    },
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
-      "nvim-tree/nvim-web-devicons", -- optional
+      "nvim-tree/nvim-web-devicons",     -- optional
     },
   },
   -- lsp servers
@@ -70,7 +75,7 @@ return {
 
   {
     "stevearc/conform.nvim",
-    enabled = true,
+    enabled = false,
     optional = true,
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
@@ -103,6 +108,7 @@ return {
 
   {
     "mfussenegger/nvim-lint",
+    enabled = false,
     opts = {
       linters_by_ft = {
         lua = { "selene", "luacheck" },
@@ -126,6 +132,7 @@ return {
   -- inlay hints
   {
     "lvimuser/lsp-inlayhints.nvim",
+    enabled = false,
     event = "LspAttach",
     opts = {},
     config = function(_, opts)
