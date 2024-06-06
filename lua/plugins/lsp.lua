@@ -1,4 +1,6 @@
 return {
+  -- disable neodev
+  { "folke/neodev.nvim",    enabled = false },
   -- lazydev
   {
     "folke/lazydev.nvim",
