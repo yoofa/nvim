@@ -75,4 +75,11 @@ return {
       min_width = 0,
     },
   },
+  -- highlight undo
+  {
+    'tzachar/highlight-undo.nvim',
+    opts = {
+      ...
+    },
+  },
 }
