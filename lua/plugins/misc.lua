@@ -48,19 +48,24 @@ return {
   -- add any tools you want to have installed below
 
   -- log highlight
-  { "mtdl9/vim-log-highlighting" },
+  {
+    "fei6409/log-highlight.nvim",
+    -- enabled = false,
+    event = "BufRead *.log",
+    opts = {},
+  },
 
   { "nvim-tree/nvim-tree.lua" },
 
   -- add vim-wakatime
-  { "wakatime/vim-wakatime", event = "VeryLazy" },
+  { "wakatime/vim-wakatime",  event = "VeryLazy" },
 
   -- code snapshot
   {
     "mistricky/codesnap.nvim",
     build = "make build_generator",
     keys = {
-      { "<leader>cx", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
+      { "<leader>cx", "<cmd>CodeSnap<cr>",     mode = "x", desc = "Save selected code snapshot into clipboard" },
       { "<leader>cs", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
     },
     opts = {
