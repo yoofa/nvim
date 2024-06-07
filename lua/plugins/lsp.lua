@@ -1,6 +1,6 @@
 return {
   -- disable neodev
-  { "folke/neodev.nvim",    enabled = false },
+  { "folke/neodev.nvim", enabled = false },
   -- lazydev
   {
     "folke/lazydev.nvim",
@@ -14,7 +14,7 @@ return {
     },
   },
   { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
-  {                                        -- optional completion source for require statements and module annotations
+  { -- optional completion source for require statements and module annotations
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       opts.sources = opts.sources or {}
@@ -56,7 +56,7 @@ return {
     },
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional
-      "nvim-tree/nvim-web-devicons",     -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
     },
   },
   -- lsp servers
@@ -102,7 +102,7 @@ return {
         ["c"] = { "clang_format" },
         ["java"] = { "google-java-format" },
         ["gn"] = { "gn" },
-        ["blueprint"] = { "bpfmt" },
+        ["bp"] = { "bpfmt" },
       },
       formatters = {
         shfmt = {

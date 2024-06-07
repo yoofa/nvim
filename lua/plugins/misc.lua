@@ -58,14 +58,14 @@ return {
   { "nvim-tree/nvim-tree.lua" },
 
   -- add vim-wakatime
-  { "wakatime/vim-wakatime",  event = "VeryLazy" },
+  { "wakatime/vim-wakatime", event = "VeryLazy" },
 
   -- code snapshot
   {
     "mistricky/codesnap.nvim",
     build = "make build_generator",
     keys = {
-      { "<leader>cx", "<cmd>CodeSnap<cr>",     mode = "x", desc = "Save selected code snapshot into clipboard" },
+      { "<leader>cx", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
       { "<leader>cs", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
     },
     opts = {
@@ -77,9 +77,15 @@ return {
   },
   -- highlight undo
   {
-    'tzachar/highlight-undo.nvim',
+    "tzachar/highlight-undo.nvim",
     opts = {
-      ...
+      ...,
     },
+  },
+  -- bp.vim
+  {
+    "yoofa/bp.vim",
+    enabled = true,
+    -- dev = true,
   },
 }
