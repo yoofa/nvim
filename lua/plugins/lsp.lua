@@ -62,6 +62,7 @@ return {
   -- lsp servers
   {
     "neovim/nvim-lspconfig",
+    event = "LazyFile",
     opts = {
       inlay_hints = { enabled = true },
       capabilities = {
@@ -74,6 +75,20 @@ return {
       servers = {
         -- clangd
         clangd = {
+          cmd = {
+            "clangd",
+            "--background-index",
+            "-j=12",
+            "--query-driver=/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
+            "--clang-tidy",
+            "--clang-tidy-checks=*",
+            "--all-scopes-completion",
+            "--cross-file-rename",
+            "--completion-style=detailed",
+            "--header-insertion-decorators",
+            "--header-insertion=iwyu",
+            "--pch-storage=memory",
+          },
           single_file_support = true,
           capabilities = {
             offsetEncoding = { "utf-16" },
@@ -103,6 +118,7 @@ return {
         ["java"] = { "google-java-format" },
         ["gn"] = { "gn" },
         ["bp"] = { "bpfmt" },
+        ["python"] = { "black" },
       },
       formatters = {
         shfmt = {

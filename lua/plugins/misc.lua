@@ -33,12 +33,51 @@ return {
   -- If you'd rather extend the default config, use the code below instead:
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      -- add tsx and treesitter
-      vim.list_extend(opts.ensure_installed, {
+    event = { "LazyFile", "VeryLazy" },
+    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    dependencies = {
+      -- Modern matchit and matchparen
+      {
+        "andymass/vim-matchup",
+        init = function()
+          vim.g.matchup_matchparen_offscreen = {}
+        end,
+      },
+
+      -- Wisely add "end" in various filetypes
+      --"RRethy/nvim-treesitter-endwise",
+    },
+    opts = {
+      ensure_installed = {
+        "bp",
+        "c",
+        "cpp",
+        -- "gn",
+        "java",
+        "lua",
+        "python",
         "tsx",
         "typescript",
-      })
+      },
+      highlight = { enable = true },
+      indent = { enable = true },
+      refactor = {
+        highlight_definitions = { enable = true },
+        highlight_current_scope = { enable = true },
+      },
+      sync_install = true,
+      auto_install = true,
+    },
+
+    ---@diagnostic disable-next-line: undefined-doc-name
+    ---@param opts TSConfig
+    config = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        ---@diagnostic disable-next-line: inject-field
+        opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
+      end
+      require("nvim-treesitter.configs").setup(opts)
     end,
   },
 
@@ -75,6 +114,11 @@ return {
       min_width = 0,
     },
   },
+  {
+    "folke/todo-comments.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    -- event = "LazyFile",
+  },
   -- highlight undo
   {
     "tzachar/highlight-undo.nvim",
@@ -85,7 +129,7 @@ return {
   -- bp.vim
   {
     "yoofa/bp.vim",
-    enabled = true,
+    enabled = false,
     -- dev = true,
   },
 }
