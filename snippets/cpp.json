@@ -1,0 +1,15 @@
+{
+  "snippets_template":{
+    "prefix": "snippets_template",
+    "body": [
+      "// @snippets-start",
+      "// @snippets-generate $1",
+      "// @snippets-description $2",
+      "// @snippets-prefix $3",
+      "\n",
+      "$4",
+      "\n",
+      "// @snippets-end"
+    ]
+  }
+}
