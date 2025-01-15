@@ -13,6 +13,6 @@ return {
     cmd = "SymbolsOutline",
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     config = true,
-    opts = { auto_close = true },
+    opts = { auto_close = true, position = "right" },
   },
 }

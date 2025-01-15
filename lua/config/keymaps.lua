@@ -8,10 +8,12 @@ vim.keymap.del("n", "<leader>l")
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- code runner
+vim.keymap.set("n", "<leader>r", "", { desc = "CodeRunner" })
 vim.keymap.set("n", "<leader>rr", "<cmd>RunCode<cr>", { desc = "Run Code" })
 vim.keymap.set("n", "<leader>rc", "<cmd>RunClose<cr>", { desc = "Run Close" })
 
 -- leetcode.nvim
+vim.keymap.set("n", "<leader>l", "", { desc = "LeetCode" })
 vim.keymap.set("n", "<leader>lt", "<cmd>Leet test<cr>", { desc = "Leet test code" })
 vim.keymap.set("n", "<leader>lc", "<cmd>Leet console<cr>", { desc = "Leet console" })
 vim.keymap.set("n", "<leader>ls", "<cmd>Leet submit<cr>", { desc = "Leet submit" })
