@@ -10,7 +10,7 @@ return {
   -- gn syntax
   { "kalcutter/vim-gn" },
 
-  -- LuaSnip
+  -- snippets
   {
     "L3MON4D3/LuaSnip",
     enabled = false,
@@ -24,6 +24,14 @@ return {
 
   { "aperezdc/vim-template" },
 
+  -- todo
+  {
+    "folke/todo-comments.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    -- event = "LazyFile",
+  },
+
+  -- code runner
   {
     "CRAG666/code_runner.nvim",
     opts = {
@@ -39,6 +47,7 @@ return {
     },
   },
 
+  --  avante
   {
     "yetone/avante.nvim",
     event = "VeryLazy",

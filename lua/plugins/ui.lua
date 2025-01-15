@@ -3,7 +3,6 @@ if false then
 end
 
 return {
-
   -- edgy
   {
     "folke/edgy.nvim",

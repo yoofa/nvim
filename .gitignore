@@ -7,3 +7,4 @@ foo.*
 *.log
 data
 lua/utils/local_config.lua
+/snippets

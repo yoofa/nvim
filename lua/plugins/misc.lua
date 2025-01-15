@@ -9,24 +9,6 @@ end
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  -- add gruvbox
-  { "ellisonleao/gruvbox.nvim" },
-
-  -- Configure LazyVim to load gruvbox
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
-
-  -- change trouble config
-  {
-    "folke/trouble.nvim",
-    enabled = true,
-    -- opts will be merged with the parent spec
-    opts = { use_diagnostic_signs = true },
-  },
 
   -- since `vim.tbl_deep_extend`, can only merge tables and not lists, the code above
   -- would overwrite `ensure_installed` with the new value.
@@ -81,11 +63,6 @@ return {
     end,
   },
 
-  -- add jsonls and schemastore ans setup treesitter for json, json5 and jsonc
-  { import = "lazyvim.plugins.extras.lang.json" },
-
-  -- add any tools you want to have installed below
-
   -- log highlight
   {
     "fei6409/log-highlight.nvim",
@@ -114,22 +91,12 @@ return {
       min_width = 0,
     },
   },
-  {
-    "folke/todo-comments.nvim",
-    cmd = { "TodoTrouble", "TodoTelescope" },
-    -- event = "LazyFile",
-  },
+
   -- highlight undo
   {
     "tzachar/highlight-undo.nvim",
     opts = {
       ...,
     },
-  },
-  -- bp.vim
-  {
-    "yoofa/bp.vim",
-    enabled = false,
-    -- dev = true,
   },
 }
