@@ -1,6 +1,7 @@
 return {
   -- disable neodev
   { "folke/neodev.nvim", enabled = false },
+
   -- lazydev
   {
     "folke/lazydev.nvim",
@@ -13,17 +14,13 @@ return {
       },
     },
   },
+
+  -- lazyvim extras
+  { import = "lazyvim.plugins.extras.lang.clangd" },
+  { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "lazyvim.plugins.extras.lang.markdown" },
+
   { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
-  { -- optional completion source for require statements and module annotations
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      opts.sources = opts.sources or {}
-      table.insert(opts.sources, {
-        name = "lazydev",
-        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-      })
-    end,
-  },
 
   -- tools
   {
@@ -109,16 +106,17 @@ return {
       formatters_by_ft = {
         ["markdown"] = { { "prettierd", "prettier" } },
         ["markdown.mdx"] = { { "prettierd", "prettier" } },
-        ["javascript"] = { "dprint" },
-        ["javascriptreact"] = { "dprint" },
-        ["typescript"] = { "dprint" },
-        ["typescriptreact"] = { "dprint" },
+        ["javascript"] = { "prettier" },
+        ["javascriptreact"] = { "prettier" },
+        ["typescript"] = { "prettier" },
+        ["typescriptreact"] = { "prettier" },
         ["cpp"] = { "clang_format" },
         ["c"] = { "clang_format" },
         ["java"] = { "google-java-format" },
         ["gn"] = { "gn" },
         ["bp"] = { "bpfmt" },
         ["python"] = { "black" },
+        ["rust"] = { "rustfmt" },
       },
       formatters = {
         shfmt = {
