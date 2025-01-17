@@ -22,7 +22,44 @@ return {
 
   { "rafamadriz/friendly-snippets", event = "VeryLazy" },
 
-  { "aperezdc/vim-template" },
+  {
+    "aperezdc/vim-template",
+    init = function()
+      vim.g.templates_directory = vim.fn.stdpath("config") .. "/templates"
+    end,
+    config = function()
+      vim.cmd([[
+        function! GetGuard()
+          " 获取文件名和路径
+          let filename = expand('%:t')
+          let filepath = expand('%:p')
+          " 获取项目根目录名（假设是git仓库）
+          let project_dir = system('git -C ' . fnamemodify(filepath, ':h') . ' rev-parse --show-toplevel')
+          let project_name = fnamemodify(substitute(project_dir, '\n\+$', '', ''), ':t')
+          " 如果不在git仓库中，使用当前目录名
+          if v:shell_error
+            let project_name = fnamemodify(getcwd(), ':t')
+          endif
+          " 转换为大写
+          let filename = toupper(filename)
+          let project_name = toupper(project_name)
+          " 替换非字母数字的字符为下划线
+          let filename = substitute(filename, '\W\+', '_', 'g')
+          let project_name = substitute(project_name, '\W\+', '_', 'g')
+          " 构造guard字符串
+          let guard = 'AVE_' . project_name . '_' . filename . '_H_'
+          " 使用vim.notify发送通知
+          " call luaeval('vim.notify(_A[1], vim.log.levels.INFO, { title = "Generated Guard" })', [guard])
+          return guard
+        endfunction
+      ]])
+
+      -- 设置用户变量
+      vim.g.templates_user_variables = {
+        { "AVE_GUARD", "GetGuard" },
+      }
+    end,
+  },
 
   -- todo
   {
