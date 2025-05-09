@@ -4,11 +4,11 @@ end
 
 return {
 
-  { import = "lazyvim.plugins.extras.ai.copilot" },
-  { import = "lazyvim.plugins.extras.ai.copilot-chat" },
-
   -- gn syntax
   { "kalcutter/vim-gn" },
+
+  --
+  { "ErichDonGubler/lsp_lines.nvim" },
 
   -- snippets
   {

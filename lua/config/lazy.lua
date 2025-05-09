@@ -14,12 +14,25 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
     -- import any extras modules here
+    -- ai
+    { import = "lazyvim.plugins.extras.ai.copilot" },
+    { import = "lazyvim.plugins.extras.ai.copilot-chat" },
     { import = "lazyvim.plugins.extras.ui.mini-animate" },
+
+    -- ui
     -- { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
     { import = "lazyvim.plugins.extras.ui.edgy" },
     { import = "lazyvim.plugins.extras.util.startuptime" },
     --{ import = "lazyvim.plugins.extras.editor.symbols-outline" },
-    --
+
+    -- language
+    { import = "lazyvim.plugins.extras.lang.clangd" },
+    { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.markdown" },
+
+    -- util
+    { import = "lazyvim.plugins.extras.util.gitui" },
+
     -- import/override with your plugins
     { import = "plugins" },
   },

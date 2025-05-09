@@ -15,11 +15,6 @@ return {
     },
   },
 
-  -- lazyvim extras
-  { import = "lazyvim.plugins.extras.lang.clangd" },
-  { import = "lazyvim.plugins.extras.lang.json" },
-  { import = "lazyvim.plugins.extras.lang.markdown" },
-
   { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
 
   -- tools
@@ -61,6 +56,14 @@ return {
     "neovim/nvim-lspconfig",
     event = "LazyFile",
     opts = {
+      diagnostics = {
+        -- disable virtual text
+        virtual_text = false,
+        virtual_lines = {
+          -- Only show virtual line diagnostics for the current cursor line
+          current_line = true,
+        },
+      },
       inlay_hints = { enabled = true },
       capabilities = {
         workspace = {
@@ -157,7 +160,7 @@ return {
   -- inlay hints
   {
     "lvimuser/lsp-inlayhints.nvim",
-    enabled = true,
+    enabled = false,
     event = "LspAttach",
     opts = {},
     config = function(_, opts)
