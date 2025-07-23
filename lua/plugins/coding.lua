@@ -61,11 +61,26 @@ return {
     end,
   },
 
-  -- todo
   {
     "folke/todo-comments.nvim",
     cmd = { "TodoTrouble", "TodoTelescope" },
     -- event = "LazyFile",
+    opts = {
+      highlight = {
+        pattern = {
+          [[.*<(KEYWORDS)\s*:]], -- 模式1：匹配 "TODO:" 或 "FIXME:"
+          [[.*<(KEYWORDS)\([^)]*\)\s*:]], -- 模式2：匹配 "TODO(youfa):"
+          [[.*<(KEYWORDS)\([^)]*\)\s*-]], -- 模式2：匹配 "TODO(youfa):"
+        },
+        -- pattern = {
+        --   --pattern = [[.*<(KEYWORDS):]],
+        --   pattern = [[.<(KEYWORDS)\s*(\([^)]*\))?:]],
+        --   -- pattern = [[.*<(KEYWORDS)\s*()?:]],
+        --   --pattern = [[.*<(KEYWORDS)\s*(\(.*\))?:]],
+        --   --pattern = [[.*<(KEYWORDS)\s*:]],
+        -- },
+      },
+    },
   },
 
   -- code runner
