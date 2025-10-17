@@ -74,7 +74,7 @@ return {
   { "nvim-tree/nvim-tree.lua" },
 
   -- add vim-wakatime
-  { "wakatime/vim-wakatime", event = "VeryLazy" },
+  { "wakatime/vim-wakatime", enabled = false, event = "VeryLazy" },
 
   -- code snapshot
   {
