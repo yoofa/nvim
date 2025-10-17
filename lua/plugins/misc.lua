@@ -54,13 +54,13 @@ return {
 
     ---@diagnostic disable-next-line: undefined-doc-name
     ---@param opts TSConfig
-    config = function(_, opts)
-      if type(opts.ensure_installed) == "table" then
-        ---@diagnostic disable-next-line: inject-field
-        opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
-      end
-      require("nvim-treesitter.configs").setup(opts)
-    end,
+    -- config = function(_, opts)
+    --   if type(opts.ensure_installed) == "table" then
+    --     ---@diagnostic disable-next-line: inject-field
+    --     opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
+    --   end
+    --   require("nvim-treesitter.configs").setup(opts)
+    -- end,
   },
 
   -- log highlight
